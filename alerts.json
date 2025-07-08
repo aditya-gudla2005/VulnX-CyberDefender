@@ -1,0 +1,117 @@
+[
+  {
+    "timestamp": "2025-07-08 02:46:46.451798",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 02:46:46.450591] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 02:46:47.402253",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 02:46:47.401191] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 02:46:48.399884",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 02:46:48.399121] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 02:46:49.416164",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 02:46:49.415667] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:10:44.222983",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:10:44.081100] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:10:45.492499",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:10:45.491684] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:10:46.478957",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:10:46.478397] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:10:47.478386",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:10:47.476225] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:12:58.182839",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:12:58.181877] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:12:59.282495",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:12:59.281728] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 04:13:00.327679",
+    "reason": "Potential XSS",
+    "entry": "[2025-07-08 04:13:00.324142] Suspicious packet from 127.0.0.1: Potential XSS"
+  },
+  {
+    "timestamp": "2025-07-08 07:15:56.736782",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "http://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:18:22.712994",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "http://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:18:45.543191",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "https://help.x.com/rules-and-policies/digital-services-act?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:18:46.962963",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "https://help.x.com/rules-and-policies/x-services-and-corporate-affiliates?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:18:48.573391",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "https://x.com/settings/account?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:32:51.873363",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "https://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:39:00.100383",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "https://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:42:45.301769",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "http://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 07:49:50.600181",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "http://cmrcet.ac.in?id=' OR '1'='1"
+  },
+  {
+    "timestamp": "2025-07-08 08:03:10.536875",
+    "reason": "SQL Injection",
+    "source_ip": "scan-local",
+    "url": "http://cmrcet.ac.in?id=' OR '1'='1"
+  }
+]
