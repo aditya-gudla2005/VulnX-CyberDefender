@@ -1,0 +1,62 @@
+body {
+  background-color: #0d0d0d;
+  color: #00fff7;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 20px;
+}
+
+h1 {
+  color: #f72585;
+  font-size: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f72585;
+  padding-bottom: 5px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.alert {
+  background: #1a1a1a;
+  border-left: 4px solid #ff3c41;
+  padding: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 0 5px #ff3c41;
+  transition: 0.2s;
+}
+
+.alert:hover {
+  background: #222;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #03dac6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03dac6;
+}
+
+button:hover {
+  background-color: #00bfa6;
+}
+
+select {
+  background: #111;
+  color: #00fff7;
+  padding: 6px;
+  border: 1px solid #00fff7;
+  border-radius: 4px;
+}
