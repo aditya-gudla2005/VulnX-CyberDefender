@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VulnX :: Live Defender</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🛡 VulnX: Cyber Defender Dashboard</h1>
+
+    <div class="controls">
+      <button onclick="fetchAlerts()">🔁 Manual Refresh</button>
+
+      <label for="filter">Filter:</label>
+      <select id="filter" onchange="fetchAlerts()">
+        <option value="all">All</option>
+        <option value="XSS">XSS</option>
+        <option value="SQLi">SQLi</option>
+      </select>
+
+      <a href="/export-pdf" target="_blank">
+        <button style="background-color:#ff4d4d;">📄 Export PDF</button>
+      </a>
+
+      <span id="count"></span>
+    </div>
+
+    <!-- 🔍 Scan UI -->
+    <div class="scan-form" style="margin-top: 30px;">
+      <h2 style="color:#00ffc8;">🕵️ Manual Web Vulnerability Scan</h2>
+      <input id="targetUrl" type="text" placeholder="https://example.com" style="width:70%; padding:5px;">
+      <button onclick="triggerScan()">Scan Now</button>
+      <p id="scan-status" style="color:orange;"></p>
+      <pre id="scan-results" style="background:black; color:#0f0; padding:10px; font-family:monospace; max-height:300px; overflow-y:auto;"></pre>
+    </div>
+
+    <!-- 📢 Alerts -->
+    <div id="alert-box"></div>
+
+    <!-- 📊 Graph -->
+    <h2 style="color:deeppink; margin-top: 40px;">📈 Alert Statistics</h2>
+    <canvas id="alertChart" width="400" height="200"></canvas>
+  </div>
+
+  <script>
+    let chart;
+
+    function renderChart(data) {
+      const ctx = document.getElementById('alertChart').getContext('2d');
+      const types = { XSS: 0, SQLi: 0 };
+
+      data.forEach(alert => {
+        if (alert.reason.includes("XSS")) types.XSS++;
+        if (alert.reason.includes("SQL Injection")) types.SQLi++;
+      });
+
+      const chartData = {
+        labels: ['XSS', 'SQLi'],
+        datasets: [{
+          label: 'Detected Alerts',
+          data: [types.XSS, types.SQLi],
+          backgroundColor: ['#00ffff', '#ff4d4d']
+        }]
+      };
+
+      if (chart) {
+        chart.data.datasets[0].data = chartData.datasets[0].data;
+        chart.update();
+      } else {
+        chart = new Chart(ctx, {
+          type: 'bar',
+          data: chartData,
+          options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+          }
+        });
+      }
+    }
+
+    function fetchAlerts() {
+      fetch("/alerts")
+        .then(res => res.json())
+        .then(data => {
+          const filter = document.getElementById("filter").value;
+          const box = document.getElementById("alert-box");
+          const countBox = document.getElementById("count");
+
+          box.innerHTML = "";
+          let count = 0;
+
+          data.slice().reverse().forEach(alert => {
+            if (filter === "XSS" && !alert.reason.includes("XSS")) return;
+            if (filter === "SQLi" && !alert.reason.includes("SQL Injection")) return;
+
+            count++;
+            const div = document.createElement("div");
+            div.className = "alert";
+            div.innerText = `[${alert.timestamp}] ${alert.reason}`;
+            box.appendChild(div);
+          });
+
+          countBox.innerText = `Showing ${count} alert(s)`;
+          renderChart(data);
+        });
+    }
+
+    function triggerScan() {
+      const url = document.getElementById("targetUrl").value;
+      if (!url) return alert("Please enter a URL");
+
+      const status = document.getElementById("scan-status");
+      const output = document.getElementById("scan-results");
+
+      status.innerText = "⏳ Scanning...";
+      output.innerText = "";
+
+      fetch("/scan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+      })
+        .then(res => res.json())
+        .then(data => {
+          status.innerText = data.message;
+          if (data.details && data.details.length > 0) {
+            output.innerText = data.details.join("\n\n");
+          } else {
+            output.innerText = "No vulnerabilities found.";
+          }
+          fetchAlerts();
+        })
+        .catch(err => {
+          status.innerText = "❌ Scan failed.";
+          output.innerText = err.toString();
+        });
+    }
+
+    setInterval(fetchAlerts, 5000);
+    window.onload = fetchAlerts;
+  </script>
+</body>
+</html>
