@@ -3,7 +3,7 @@ VulnX is a full-stack cybersecurity tool built to detect web vulnerabilities in 
 
 ## Features
 
-- 📡 **Live Packet Sniffing** (Scapy)
+- **Live Packet Sniffing** (Scapy)
   - Detects suspicious payloads like XSS and SQLi in real-time.
   - Alerts shown instantly on the dashboard and/or via Telegram bot.
 
@@ -69,7 +69,7 @@ python3 scan.py
 
 │   └── style.css          # Cyberpunk-themed styles
 
-└── VulnX_Report.pdf       # Generated report (optional)
+└── VulnX_Report.pdf       
 
 
 ## Skipped: IP Blocking
