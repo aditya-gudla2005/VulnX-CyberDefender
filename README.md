@@ -62,9 +62,11 @@ python3 scan.py
 ├── scan_results.json      # Logs for scanner-based results
 
 ├── templates/
+
 │   └── index.html         # Dashboard UI
 
 ├── static/
+
 │   └── style.css          # Cyberpunk-themed styles
 
 └── VulnX_Report.pdf       # Generated report (optional)
