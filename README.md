@@ -51,16 +51,23 @@ python3 scan.py
 
 ## Project Structure
 
-**├── app.py                 # Flask backend for dashboard
+├── app.py                 # Flask backend for dashboard
+
 ├── sniffer.py             # Real-time packet sniffer + detector
+
 ├── scan.py                # Manual vulnerability scanner
+
 ├── alerts.json            # Logs for real-time alerts
+
 ├── scan_results.json      # Logs for scanner-based results
+
 ├── templates/
 │   └── index.html         # Dashboard UI
+
 ├── static/
 │   └── style.css          # Cyberpunk-themed styles
-└── VulnX_Report.pdf       # Generated report (optional)**
+
+└── VulnX_Report.pdf       # Generated report (optional)
 
 
 ## Skipped: IP Blocking
