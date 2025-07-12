@@ -47,6 +47,7 @@ python3 scan.py
 
 ## Telegram Alert Setup:
 1)Create a bot via @BotFather.
+
 2)Replace TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in sniffer.py.
 
 ## Project Structure
@@ -77,7 +78,9 @@ We initially planned to add an IP blocking feature directly from the dashboard. 
 
 ## Future Enhancements
 1)Real IP geolocation in alerts
+
 2)Advanced vulnerability signatures
+
 3)Remote deployment on cloud/VPS (e.g., Render, Heroku)
 
 
